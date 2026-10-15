@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Arrise Digital brand tokens */
+    --brand-primary: #FF6B00;
+    --brand-background: #0D0D0D;
+    --brand-text-light: #F5F5F5;
+    --color-primary-hover: #E65F00;
+    --color-focus: #FF6B00;
+    --color-surface: #171717;
+    --color-surface-elevated: #202020;
+    --color-border: #333333;
+    --color-text-muted: #B3B3B3;
+
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+    --primary: 26 100% 50%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 26 100% 50%;
+    --accent-foreground: 0 0% 98%;
+    --border: 0 0% 90%;
+    --ring: 26 100% 50%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --input: 0 0% 90%;
+    --chart-1: 26 100% 50%;
+    --chart-2: 0 0% 35%;
+    --chart-3: 0 0% 50%;
+    --chart-4: 0 0% 65%;
+    --chart-5: 0 0% 80%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 5 5% 5%;
+    --foreground: 0 0% 96%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 96%;
+    --primary: 26 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 96%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 72%;
+    --accent: 26 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --border: 0 0% 16%;
+    --ring: 26 100% 50%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 96%;
+    --destructive: 0 62.8% 40.6%;
+    --destructive-foreground: 0 0% 98%;
+    --input: 0 0% 12%;
+    --chart-1: 26 100% 55%;
+    --chart-2: 0 0% 65%;
+    --chart-3: 0 0% 50%;
+    --chart-4: 0 0% 35%;
+    --chart-5: 0 0% 20%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  ::selection {
+    @apply bg-primary/30;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-muted-foreground/30;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-gradient-to-r from-[#FF6B00] via-[#FF6B00]/90 to-[#FF6B00]/80 bg-clip-text text-transparent;
+  }
+
+  .glass {
+    @apply border border-border/60 bg-card/60 backdrop-blur-xl;
+  }
+
+  .card-surface {
+    @apply relative overflow-hidden rounded-2xl border border-border/60 bg-card/50 backdrop-blur-sm transition-all duration-300;
+  }
+
+  .card-surface:hover {
+    @apply -translate-y-1 border-primary/40 shadow-2xl shadow-primary/10;
+  }
+
+  .glow-grid {
+    background-image:
+      linear-gradient(to right, hsl(var(--border) / 0.4) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.4) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border border-border/70 bg-muted/60 px-3 py-1 text-xs font-medium text-muted-foreground;
+  }
+}
